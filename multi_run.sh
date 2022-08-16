@@ -1,5 +1,5 @@
 #!bin/bash
-#SBATCH --account=dxz222
+
 #SBATCH --output=run_out_I.log
 #SBATCH --error=run_error_I.log
 #SBATCH --job-name=run_I
