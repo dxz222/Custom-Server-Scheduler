@@ -4,7 +4,7 @@ source ~/.bashrc
 for i in `seq 1 6`
 do
     # Create job submission script.
-    cmd=`sed -e "s/VAR_I/${i}/" dummy_job.sh`
+    cmd=`sed -e "s/I/${i}/" dummy_job.sh`
     printf "${cmd}" > __job.sh
 	
 	# Submit script.
