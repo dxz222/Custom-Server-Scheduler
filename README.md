@@ -1,3 +1,3 @@
 # STEM Serve Setting
 
-### This is the testing codes for my first attampts on Github. yeah ~~~
+This repository contains the codes for multi-batch running on server. 
