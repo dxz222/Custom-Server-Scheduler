@@ -1,0 +1,11 @@
+Thu 11 May 2023 12:25:51 PM CST
+GPU/id: 0, GPU/state: P8, GPU/memory: 1MiB, GPU/power: 17W
+GPU/id: 1, GPU/state: P8, GPU/memory: 1MiB, GPU/power: 1W
+GPU/id: 2, GPU/state: P8, GPU/memory: 1MiB, GPU/power: 21W
+GPU/id: 3, GPU/state: P8, GPU/memory: 1MiB, GPU/power: 19W
+Done, test.py, 0, 1
+----------
+ GPU [0, 1, 2, 3] Available
+ ----------
+ NUM_GPUS=4; CUDA_VISIBLE_DEVICES=0,1,2,3 python test.py 0 1 2
+Thu 11 May 2023 12:26:07 PM CST
