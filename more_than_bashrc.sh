@@ -28,3 +28,9 @@ function sbatch () {
     # Echo support information.
     echo "Submit job: ${job_name}."
 }
+
+function qpython () {
+    python ~/.__GPUGet.py $@
+}
+
+alias sq='screen -ls'
