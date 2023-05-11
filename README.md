@@ -2,6 +2,12 @@
 ## Introduction
 This repository contains the document and auxiliary code for novice on high-throughput computation on small server, including the brief intro on shell usage, baisc configuration on environment, and multi-batch tasks setting for high-throughput computing. The PDF file will guide you through the first two cases, while the following will lead to you the last case.
 
+## Feature
+- **Queuing Mechanics:** Queue submitted computing missions up if there are no GPU for use. 
+- **Dynamical Resourse Assignment:** Dynamically distribute the available GPU resoureces to queuing mission.
+- With this plug-in, you can let the code run by itself at night.
+- Also, it could ease your high-throughput computing missions with simple scripts.
+
 ## Dependency
 - screen
 
