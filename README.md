@@ -21,7 +21,7 @@ This repository contains the document and auxiliary code for novice on high-thro
 ### Single-batch Submission
 For single-batch mission, you could submit mission with the bash file like `run.sh`.
 
-``` $ sbatch run.sh ```
+```bash $ sbatch run.sh ```
 
 ```bash
 #!bin/bash
