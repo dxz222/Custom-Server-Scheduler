@@ -34,3 +34,4 @@ function qpython () {
 }
 
 alias sq='screen -ls'
+alias GPU_update='qpython 0'
