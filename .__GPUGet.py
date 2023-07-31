@@ -102,7 +102,7 @@ class GPUGet:
 
 
 if __name__ == '__main__':
-    min_gpu_number = 1  # 最小GPU数量，多于这个数值才会开始执行训练任务。
+    min_gpu_number = 1  # 最小GPU数量，多于等于这个数值才会开始执行训练任务。
     time_interval = 5  # 监控GPU状态的频率，单位秒。
     gpu_get = GPUGet(min_gpu_number, time_interval)
     
