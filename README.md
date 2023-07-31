@@ -31,7 +31,9 @@ For single-batch mission, you could submit mission with the bash file like `run.
 qpython script.py
 ```
 `output`: the output file containing screening information.
+
 `error`: the error file containing error and warning messages.
+
 `job-name`: name of the submitted job.
 
 
