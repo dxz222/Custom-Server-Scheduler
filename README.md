@@ -33,11 +33,13 @@ qpython script.py
 - `output`: the output file containing screening information.
 - `error`: the error file containing error and warning messages.
 - `job-name`: name of the submitted job.
-- `qpython`: command like python with submitting the job onto scheduler first.
+- `qpython`: command like python while submitting the job onto scheduler first.
 
 
 ### Multi-batch Submission
-2. For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
+For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
+
+
 
 ### GPU Info Update
 3. You can refer to `multi_batch_GPU_test` for further demonstration.
