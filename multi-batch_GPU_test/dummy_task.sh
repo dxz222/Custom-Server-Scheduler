@@ -6,7 +6,7 @@
 #SBATCH --time=00:06:00         # Currently useless.
 
 source ~/.bashrc
-conda activate py3_8env
+conda activate pytorchenv
 
 date
 

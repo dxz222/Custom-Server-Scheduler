@@ -1,6 +1,5 @@
 #!bin/bash
 source ~/.bashrc
-conda activate py3_8env
 
 # Loop over image centers.
 for i in `seq 0 1`
