@@ -4,4 +4,4 @@
 #SBATCH --error=run_error_I.log
 #SBATCH --job-name=run_I
 
-python script.py I
+qpython script.py I
