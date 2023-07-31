@@ -18,7 +18,7 @@ This repository contains the document and auxiliary code for novice on high-thro
 3. Copy the code inside `more_than_bashrc.sh` at the end of your `.bashrc` file. Take care that do not change the original code in your `.bashrc` file.
 
 ## Usage
-##### Single-batch Submission
+### Single-batch Submission
 1. For single-batch mission, you could submit mission with the bash file like `run.sh`.
 2. For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
 3. You can refer to `multi_batch_GPU_test` for further demonstration.
