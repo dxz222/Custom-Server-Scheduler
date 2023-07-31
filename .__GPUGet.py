@@ -3,6 +3,7 @@ import os
 import time
 import sys
 
+user_home = os.path.expanduser('~')
 
 class GPUGet:
     def __init__(self,
@@ -52,7 +53,7 @@ class GPUGet:
             available_gpus = self.get_available_gpus()
             
             # 获取通过记录的得到的可用GPU。
-            with open('.gpu_status_file.info', 'r') as f:
+            with open(user_home + '/.gpu_status_file.info', 'r') as f:
                 gpu_state_file = f.read().strip().split(' ')
                 
                 """ 
@@ -67,10 +68,10 @@ class GPUGet:
             if len(available_gpus) >= self.min_gpu_number:
 
                 # 将用掉的GPU从记录中删除。
-                with open('.gpu_status_file.info', 'r') as f:
+                with open(user_home + '/.gpu_status_file.info', 'r') as f:
                     gpu_state_file = f.read().strip().split(' ')
                 
-                with open('.gpu_status_file.info', 'w') as f:
+                with open(user_home + '/.gpu_status_file.info', 'w') as f:
                     for i in available_gpus[:min_gpu_number]:
                         gpu_state_file[i] = 1
                     f.write(' '.join(list(map(str, gpu_state_file))))
@@ -97,7 +98,7 @@ class GPUGet:
             for i in available_gpus:
                 gpu_state_file[i] = 0
 
-            with open('/home/xzdai/.gpu_status_file.info', 'w') as f:
+            with open(user_home + '/.gpu_status_file.info', 'w') as f:
                 f.write(' '.join(list(map(str, gpu_state_file))))
             
             time.sleep(6)
@@ -112,10 +113,10 @@ class GPUGet:
         os.system(cmd)
 
         # 将用完的GPU在记录中还原。
-        with open('/home/xzdai/.gpu_status_file.info', 'r') as f:
+        with open(user_home + '/.gpu_status_file.info', 'r') as f:
             gpu_state_file = f.read().strip().split(' ')
         
-        with open('/home/xzdai/.gpu_status_file.info', 'w') as f:
+        with open(user_home + '/.gpu_status_file.info', 'w') as f:
             for i in available_gpus:
                 gpu_state_file[i] = 0
             f.write(' '.join(list(map(str, gpu_state_file))))
