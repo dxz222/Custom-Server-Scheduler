@@ -20,7 +20,11 @@ This repository contains the document and auxiliary code for novice on high-thro
 ## Usage
 ### Single-batch Submission
 1. For single-batch mission, you could submit mission with the bash file like `run.sh`.
+
+### Multi-batch Submission
 2. For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
+
+### GPU Info Update
 3. You can refer to `multi_batch_GPU_test` for further demonstration.
 
 ## Alert
