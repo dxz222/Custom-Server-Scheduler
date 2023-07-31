@@ -32,11 +32,16 @@ $ sbatch run.sh
 #SBATCH --error=run_error.log
 #SBATCH --job-name=run
 
+source ~/.bashrc                
+conda activate pytorchenv       
+
 qpython script.py
 ```
 - `output`: the output file containing screening information.
 - `error`: the error file containing error and warning messages.
 - `job-name`: name of the submitted job.
+- `source ~/.bashrc`: necessary operation is sourced here. Do not need to change it.
+- `conda activate`: activatation of necessary conda environment needed.
 - `qpython`: command like python while submitting the job onto scheduler first.
 
 
@@ -62,7 +67,6 @@ do
 	
 	# Submit script.
     sbatch __job.sh
-    sleep 0.1	# Wait for a while for submitting.
 	
 	# Remove script.
     rm __job.sh
@@ -79,6 +83,9 @@ The submission file is similar to single-batch case with a substitutable string 
 #SBATCH --output=run_out_I.log
 #SBATCH --error=run_error_I.log
 #SBATCH --job-name=run_I
+
+source ~/.bashrc                
+conda activate pytorchenv       
 
 qpython script.py I
 ```

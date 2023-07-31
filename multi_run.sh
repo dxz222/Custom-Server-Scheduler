@@ -4,4 +4,7 @@
 #SBATCH --error=run_error_I.log
 #SBATCH --job-name=run_I
 
+source ~/.bashrc                
+conda activate pytorchenv       
+
 qpython script.py I
