@@ -15,7 +15,6 @@ do
             cmd=`sed -e "s/VAR_I/${i}/" -e "s/VAR_J/${j}/" -e "s/VAR_K/${k}/" dummy_task.sh`
             printf "${cmd}" > __job.sh
             sbatch __job.sh
-            sleep 5
             rm __job.sh
         done   
     done
