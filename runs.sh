@@ -9,7 +9,6 @@ do
 	
 	# Submit script.
     sbatch __job.sh
-    sleep 0.1	# Wait for a while for submitting.
 	
 	# Remove script.
     rm __job.sh
