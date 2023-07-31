@@ -21,6 +21,8 @@ This repository contains the document and auxiliary code for novice on high-thro
 ### Single-batch Submission
 For single-batch mission, you could submit mission with the bash file like `run.sh`.
 
+``` $ sbatch run.sh ```
+
 ```bash
 #!bin/bash
 
@@ -39,10 +41,53 @@ qpython script.py
 ### Multi-batch Submission
 For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
 
+``` $ bash runs.sh ```
 
+First, create submission file like single-batch case above, and assign them to different available GPUs given by scheduler. You don't have to write anything for scheduler and only need submit all jobs via `qpython`. It will take care of all of the other procudure.
+
+Here is the demo of job file to submit all submissions. 
+```bash
+#!/bin/bash
+source ~/.bashrc
+
+for i in `seq 1 6`
+do
+	# Create job submission script.
+    cmd=`sed -e "s/I/${i}/" dummy_job.sh`
+    printf "${cmd}" > __job.sh
+	
+	# Submit script.
+    sbatch __job.sh
+    sleep 0.1	# Wait for a while for submitting.
+	
+	# Remove script.
+    rm __job.sh
+done
+```
+
+We create 6 submissions and submit them on scheduler via `sbatch __job.sh`.
+
+The submission file is similar to single-batch case with a substitutable string "I" differentiate submissions.  
+
+```bash
+#!bin/bash
+
+#SBATCH --output=run_out_I.log
+#SBATCH --error=run_error_I.log
+#SBATCH --job-name=run_I
+
+qpython script.py I
+```
 
 ### GPU Info Update
-3. You can refer to `multi_batch_GPU_test` for further demonstration.
+UP to now, the package can not update GPU availabilty if GPU is killed without running over the submitted job. Once you notice some GPUs are left behind updating, update them manually. 
+
+``` $ GPU_update ```
+
+You can also use this command check available GPUs resource.
+
+### Test
+You can refer to `multi_batch_GPU_test` for further demonstration and test the availability of the package.
 
 ## Alert
 These codes are used for the server without sbatch plug-in installed. If you are using a cluster or server with sbatch plug-in, these codes will be incompatible with it thus cause some errors.
