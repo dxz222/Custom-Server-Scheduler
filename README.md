@@ -12,7 +12,7 @@ This repository contains the document and auxiliary code for novice on high-thro
 - screen
 
 ## Usage
-1. Copy the file `.gpu_status_file.info`, `.__sbatch.sh` and`.__GPUGet.py` files into your home directory. The file `.gpu_status_file.info` contains the information for usability of GPU, where 0 represents free and 1 means occupied.
+1. Copy the file `.gpu_status_file.info`, `.__sbatch.sh` and`.__GPUGet.py` files into your home directory. The file `.gpu_status_file.info` contains the information for usability of GPU, where 0 represents free and 1 means occupied. Change the number of 0s in `.gpu_status_file.info` to the number of GPUs on your server.
 2. Copy the code inside `more_than_bashrc.sh` at the end of your `.bashrc` file. Take care that do not change the original code in your `.bashrc` file.
 3. For single-batch mission, you could submit mission with the bash file like `run.sh`.
 4. For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
