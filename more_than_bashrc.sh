@@ -27,6 +27,10 @@ function sbatch () {
 
     # Echo support information.
     echo "Submit job: ${job_name}."
+
+    # Compensate time for passing the __job.sh file before delete.
+    # Todo: control stream for assuring the file is passed into subprocess before deleted.
+    sleep 0.5
 }
 
 function qpython () {
