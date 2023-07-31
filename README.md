@@ -21,7 +21,9 @@ This repository contains the document and auxiliary code for novice on high-thro
 ### Single-batch Submission
 For single-batch mission, you could submit mission with the bash file like `run.sh`.
 
-```bash $ sbatch run.sh ```
+```bash
+$ sbatch run.sh
+```
 
 ```bash
 #!bin/bash
@@ -41,7 +43,9 @@ qpython script.py
 ### Multi-batch Submission
 For multi-batch mission, you could submit mission with the bash files like `multi_run.sh` and `runs.sh`.
 
-``` $ bash runs.sh ```
+```bash
+$ bash runs.sh
+```
 
 First, create submission file like single-batch case above, and assign them to different available GPUs given by scheduler. You don't have to write anything for scheduler and only need submit all jobs via `qpython`. It will take care of all of the other procudure.
 
@@ -82,7 +86,9 @@ qpython script.py I
 ### GPU Info Update
 UP to now, the package can not update GPU availabilty if GPU is killed without running over the submitted job. Once you notice some GPUs are left behind updating, update them manually. 
 
-``` $ GPU_update ```
+```bash
+$ GPU_update
+```
 
 You can also use this command check available GPUs resource.
 
