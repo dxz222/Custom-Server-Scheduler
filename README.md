@@ -21,6 +21,18 @@ This repository contains the document and auxiliary code for novice on high-thro
 ### Single-batch Submission
 For single-batch mission, you could submit mission with the bash file like `run.sh`.
 
+```python
+#!bin/bash
+
+#SBATCH --output=run_out.log
+#SBATCH --error=run_error.log
+#SBATCH --job-name=run
+
+qpython script.py
+```
+- `output`: the output file containing screening information.
+- `error`: the error file containing error and warning messages.
+- `job-name`: name of the submitted job.
 
 
 ### Multi-batch Submission
