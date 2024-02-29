@@ -2,6 +2,7 @@
 import os
 import time
 import sys
+import fcntl
 
 user_home = os.path.expanduser('~')
 
@@ -60,7 +61,7 @@ class GPUGet:
                 02 设置GPU总数
                 设置`range(n)`中n为机器中GPU总数  
                 """
-                gpu_state_file = [i for i in range(2) if gpu_state_file[i] == '0']
+                gpu_state_file = [i for i in range(6) if gpu_state_file[i] == '0']
 
             # 综合得到的最终可用GPU。
             available_gpus = list(set(available_gpus).intersection(set(gpu_state_file)))
@@ -72,9 +73,11 @@ class GPUGet:
                     gpu_state_file = f.read().strip().split(' ')
                 
                 with open(user_home + '/.gpu_status_file.info', 'w') as f:
+                    fcntl.flock(f, fcntl.LOCK_EX)
                     for i in available_gpus[:min_gpu_number]:
                         gpu_state_file[i] = 1
                     f.write(' '.join(list(map(str, gpu_state_file))))
+                    fcntl.flock(f, fcntl.LOCK_UN)
 
                 return available_gpus[:min_gpu_number]
             else:
@@ -87,7 +90,7 @@ class GPUGet:
         02 设置GPU总数
         设置`[1,...,1]`中1的个数与机器中GPU总数一致  
         """
-        gpu_state_file = [1,1,1,1]        
+        gpu_state_file = [1,1,1,1,1,1]        
         
         while True:
             print(' ')
@@ -99,7 +102,9 @@ class GPUGet:
                 gpu_state_file[i] = 0
 
             with open(user_home + '/.gpu_status_file.info', 'w') as f:
+                fcntl.flock(f, fcntl.LOCK_EX)
                 f.write(' '.join(list(map(str, gpu_state_file))))
+                fcntl.flock(f, fcntl.LOCK_UN)
             
             time.sleep(6)
 
@@ -117,9 +122,11 @@ class GPUGet:
             gpu_state_file = f.read().strip().split(' ')
         
         with open(user_home + '/.gpu_status_file.info', 'w') as f:
+            fcntl.flock(f, fcntl.LOCK_EX)
             for i in available_gpus:
                 gpu_state_file[i] = 0
             f.write(' '.join(list(map(str, gpu_state_file))))
+            fcntl.flock(f, fcntl.LOCK_UN)
 
 
 if __name__ == '__main__':

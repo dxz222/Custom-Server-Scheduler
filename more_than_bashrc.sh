@@ -23,7 +23,8 @@ function sbatch () {
     time=`sed -n 's/#SBATCH --time=//p' $1`
 
     # Submit the mission in a new screen.
-    screen -S ${job_name} -d -m bash ~/.__sbatch.sh $1 ${output} ${error}
+    # screen -S ${job_name} -d -m bash ~/.__sbatch.sh $1 ${output} ${error}
+    nohup bash $1  > ${output} 2> ${error} &
 
     # Echo support information.
     echo "Submit job: ${job_name}."
